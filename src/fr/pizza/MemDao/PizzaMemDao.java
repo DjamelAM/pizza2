@@ -2,6 +2,7 @@ package fr.pizza.MemDao;
 
 import java.util.ArrayList;
 import fr.pizzeria.model.Pizza;
+
 public class PizzaMemDao implements IPizzaDao {
 
 	public ArrayList<Pizza> listPizza;
@@ -22,54 +23,47 @@ public class PizzaMemDao implements IPizzaDao {
 
 	}
 
-	@Override
 	public ArrayList<Pizza> findAllPizzas() {
 
 		return listPizza;
 	}
 
-	@Override
 	public void saveNewPizza(Pizza pizza) {
-		
+
 		listPizza.add(pizza);
-		
+
 	}
 
-	@Override
 	public void updatePizza(String codePizza, Pizza pizza) {
+		
 		deletePizza(codePizza);
 		saveNewPizza(pizza);
-		}
-	
-
-	@Override
-	public void deletePizza(String codePizza) {
-		
-		listPizza.remove(findPizzaByCode(codePizza));
-		
 	}
 
-	@Override
+	public void deletePizza(String codePizza) {
+
+		listPizza.remove(findPizzaByCode(codePizza));
+
+	}
+
 	public Pizza findPizzaByCode(String codePizza) {
 		Pizza pizzaTrouver = null;
-		for(int i=0;i<listPizza.size();i++){
-			if (( listPizza.get(i).getCode()).equals(codePizza)){
+		for (int i = 0; i < listPizza.size(); i++) {
+			if ((listPizza.get(i).getCode()).equals(codePizza)) {
 				pizzaTrouver = listPizza.get(i);
-			}	
+			}
 		}
 		return pizzaTrouver;
 
 	}
-	@Override
+
 	public boolean pizzaExists(String codePizza) {
-if (findPizzaByCode(codePizza).getCode().equals(codePizza)){
-	
-	return true;
-}
-		
+		if (findPizzaByCode(codePizza).getCode().equals(codePizza)) {
+
+			return true;
+		}
+
 		return false;
 	}
-
-
 
 }

@@ -1,0 +1,4 @@
+PEP -> peperoni(15.0 €)catégorie : null
+POP -> poporoni(10.5 €)catégorie : null
+CHN -> chienroni(5.05 €)catégorie : null
+POP -> poi(15.0 €)catégorie : POISSON

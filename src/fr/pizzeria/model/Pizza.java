@@ -5,23 +5,24 @@ public class Pizza {
 	String code;
 	String libelle;
 	double prix;
-	
-	public Pizza(String nvCode,String nvLibelle, double nvPrix){
-		code = nvCode;
-		libelle = nvLibelle;
-		prix = nvPrix;
-	}
-	
-	public Pizza(int nvId, String nvCode,String nvLibelle, double nvPrix){
-		id = nvId;
-		code = nvCode;
-		libelle = nvLibelle;
-		prix = nvPrix;
-		
-	}
-	
+	CategoriePizza categorie;
 
-	
+	public Pizza(String nvCode, String nvLibelle, double nvPrix, CategoriePizza categorie) {
+		code = nvCode.toUpperCase();
+		libelle = nvLibelle;
+		prix = nvPrix;
+		this.categorie = categorie;
+	}
+
+	public Pizza(int nvId, String nvCode, String nvLibelle, double nvPrix) {
+		id = nvId;
+		code = nvCode.toUpperCase();
+		libelle = nvLibelle;
+		prix = nvPrix;
+
+	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -54,9 +55,16 @@ public class Pizza {
 		this.prix = prix;
 	}
 
-	public String toString() {
-		return code +" -> " + libelle + "(" + prix + " \u20ac)";
+	public CategoriePizza getCategorie() {
+		return categorie;
 	}
 
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
+	}
+
+	public String toString() {
+		return code + " -> " + libelle + "(" + prix + " \u20ac)" + "catégorie : " + categorie;
+	}
 
 }
